@@ -90,7 +90,10 @@ class GTO_Quantity_Manager {
                         'ea'    => 'EA',
                         'lm'  => 'LM',
                         'set'   => 'Set',
-                        'bag'  => 'Bag'
+                        'bag'  => 'Bag',
+                        'kit'  => 'Kit',
+                        'piece'  => 'Piece',
+                        'unit'  => 'Unit'
                     )
                 ));
                 ?>
