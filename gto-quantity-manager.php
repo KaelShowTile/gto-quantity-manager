@@ -161,6 +161,10 @@ class GTO_Quantity_Manager {
                 array('%d', '%f', '%s')
             );
         }
+
+        if($suffix == 'm2' && $step > 0){
+            $this->intergrate_product_wt_feed($step, $post_id);
+        }
     }
     
     public function load_product_data() {
@@ -182,6 +186,18 @@ class GTO_Quantity_Manager {
             </script>
             <?php
         }
+    }
+
+    //integrate with WebToffee product feed for Unit pricing measure
+    public function intergrate_product_wt_feed($step, $post_id){
+        $unit_pricing_measure = $step . ' sqm';
+        $base_measure = '1 sqm';
+
+        error_log('product id:' . $post_id);
+        error_log('value:' . $unit_pricing_measure);
+
+        update_post_meta($post_id, '_wt_feed_unit_pricing_measure', $unit_pricing_measure);
+        update_post_meta($post_id, '_wt_feed_unit_pricing_base_measure', $base_measure);
     }
 }
 
