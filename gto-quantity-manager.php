@@ -43,6 +43,7 @@ class GTO_Quantity_Manager {
         
         // Save product data
         add_action('woocommerce_process_product_meta', array($this, 'save_product_data'));
+        add_action('woocommerce_save_product_variation', array($this, 'save_product_data'));
         
         // Load product data
         add_action('woocommerce_product_options_general_product_data', array($this, 'load_product_data'));
@@ -193,11 +194,8 @@ class GTO_Quantity_Manager {
         $unit_pricing_measure = $step . ' sqm';
         $base_measure = '1 sqm';
 
-        error_log('product id:' . $post_id);
-        error_log('value:' . $unit_pricing_measure);
-
-        update_post_meta($post_id, '_wt_feed_unit_pricing_measure', $unit_pricing_measure);
-        update_post_meta($post_id, '_wt_feed_unit_pricing_base_measure', $base_measure);
+        update_post_meta($post_id, '_glint_unit_pricing_measure', $unit_pricing_measure);
+        update_post_meta($post_id, '_glint_unit_pricing_base_measure', $base_measure);
     }
 }
 
